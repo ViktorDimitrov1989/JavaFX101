@@ -28,7 +28,6 @@ public class SpriteAnimation extends Transition{
         this.height = height;
         setCycleDuration(duration);
         setInterpolator(Interpolator.LINEAR);
-
     }
 
     @Override
