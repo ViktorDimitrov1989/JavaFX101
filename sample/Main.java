@@ -33,6 +33,7 @@ public class Main extends Application {
         Image earth = new Image("resources/earth.png");
         Image sun = new Image("resources/sun.png");
         Image space = new Image("resources/space.png");
+
         //UFO object
         AnimatedImage ufo = new AnimatedImage();
         Image[] imageArray = new Image[6];
@@ -41,6 +42,15 @@ public class Main extends Application {
         }
         ufo.frames = imageArray;
         ufo.duration = 0.100;
+
+        //SpaceShip Object
+        AnimatedImage spaceShip = new AnimatedImage();
+        Image[] spaceShipImageArr = new Image[1];
+        spaceShipImageArr[0] = new Image("resources/spaceShip/shipsprite1_07.png");
+        spaceShip.frames = spaceShipImageArr;
+        spaceShip.duration = 0.100;
+
+
         final long startNanoTime = System.nanoTime();
 
         new AnimationTimer()
@@ -58,7 +68,9 @@ public class Main extends Application {
                 gc.drawImage(sun, 196,196);
                 // draw UFO
                 gc.drawImage(ufo.getFrame(t), 250, 25);
-
+                //draw spaceShip
+                double distance = ((100 * t) % (canvas.getWidth() + 100));
+                gc.drawImage(spaceShip.getFrame(t), distance - 100, 100);
             }
         }.start();
 
